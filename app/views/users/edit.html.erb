@@ -1,0 +1,26 @@
+<div class="page-header">
+  <h1><%= @user.name%> faça suas indicações </h1>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <%= simple_form_for @user do |f| %>
+
+      <%= f.simple_fields_for :invites do |invite| %>
+        <div class="section">
+          <%= render 'invite_fields', f: invite %>
+        </div>
+      <% end %>
+
+      <div class="row">
+        <%= link_to_add_association '<span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span>'.html_safe,
+        f, :invites, class: 'btn btn-success' %>
+      </div>
+
+      <div class="row">
+        <%= f.button :submit, 'Pronto', class:'btn btn-primary' %>
+      </div>
+
+    <% end %>
+  </div>
+</div>
