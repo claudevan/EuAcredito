@@ -5,7 +5,7 @@ feature 'User Register' do
     visit root_path
     click_on "Cadastre-se"
 
-    user = FactoryGirl.create(:user)
+    user = FactoryGirl.build(:user)
 
     fill_in 'Nome',       with: user.name
     fill_in 'Email',      with: user.email
